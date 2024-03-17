@@ -1,0 +1,27 @@
+{% include "registration/base.html" %}
+{% load static %}
+{% load socialaccount %}
+{% block content %}
+  {% if user.is_authenticated %}
+    <form id="logout-form" method="post" action="{% url 'logout' %}">
+      {% csrf_token %}
+      <a href="#" onclick="document.getElementById('logout-form').submit();">Sign Out</a>
+    </form>
+    <div class="alert alert-info">
+      <p>Welcome {{ user.username }} !!!</p>
+    </div>
+  {% else %} 
+  {% endif %}
+
+  <main role="main">
+    <div class="container">
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}" style="color: black;">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </main>
+{% endblock content %}

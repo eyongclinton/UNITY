@@ -1,0 +1,27 @@
+body{
+  /* removing gaps */
+/* enlevement des espaces inutiles */
+margin: 0;
+
+/* filling the entire web page */
+/* fait que le document remplisse toute la page web. */
+width: 100vw!important;
+height: 90vh!important;
+
+/* using flexboxes to enter my form */
+display: flex;
+align-items: center!important;
+justify-content: center!important;
+
+/* linear gradients */
+/* Dégradé entre deux couleurs */
+
+}
+#btn {
+  background-color: rgb(198, 91, 248);
+  outline: none!important;
+  border: none!important;
+  height: 36px!important;
+  border-radius: 8px!important;
+  font-weight: bold!important;
+}

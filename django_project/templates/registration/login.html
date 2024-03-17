@@ -1,0 +1,38 @@
+{% load bootstrap5 %}
+
+{% include "registration/base.html" %}
+
+{% block content %}
+<div class="content-section" id="content">
+  <div class="row">
+    <div class="col-md-4 d-none d-md-block">
+      <img src="https://i.pinimg.com/564x/6f/f5/c7/6ff5c7665841932164bfa246972889d5.jpg" alt="" class="img-fluid">
+    </div>
+
+    <div class="col-md-8">
+      <h1 class="mb-4">Sign In</h1>
+      <p>
+        If you haven't created an account yet, please
+        <a href="{% url "register" %}">sign up</a> first.
+      </p>
+
+      <div class="container mt-5">
+        <form method="post" action="" class="needs-validation" novalidate>
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="username" class="form-label">Username:</label>
+            <input type="text" class="form-control" id="username" name="username" required>
+            <div class="invalid-feedback">Please provide a valid username.</div>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+            <div class="invalid-feedback">Please provide a valid password.</div>
+          </div>
+          <button type="submit" class="btn btn-primary">Log In</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

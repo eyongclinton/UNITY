@@ -1,0 +1,55 @@
+{% include "registration/base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+  <h1 class="mb-3">UNITY TRAVEL</h1>
+
+  <h1 class="mb-4">Hey there, it's time to travel! Let's get started.</h1>
+  <p>
+    Already have an account? Then please
+    <a href="{% url 'login' %}">sign in</a>.
+  </p>
+
+  <form method="post" action="{% url 'login' %}" class="needs-validation" novalidate>
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="id_username">Username:</label>
+      <input type="text" name="username" class="form-control" id="id_username" placeholder="Username" autocomplete="username" minlength="1" maxlength="150" required>
+    </div>
+
+    <div class="form-group">
+      <label for="id_email">Email:</label>
+      <input type="email" name="email" class="form-control" id="id_email" placeholder="Email address" autocomplete="email" maxlength="320">
+    </div>
+
+    <div class="form-group">
+      <label for="id_password1">Password:</label>
+      <input type="password" name="password1" class="form-control" id="id_password1" placeholder="Password" autocomplete="new-password" required>
+      <small class="form-text text-muted">
+        Your password must contain at least 8 characters, can't be too similar to your other personal information, can't be a commonly used password, and can't be entirely numeric.
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="id_password2">Confirm Password:</label>
+      <input type="password" name="password2" class="form-control" id="id_password2" placeholder="Password (again)" autocomplete="new-password" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Sign Up</button>
+  </form>
+
+  <hr class="mt-5">
+
+  <h2>Or use a third-party</h2>
+
+  <ul class="list-unstyled">
+    <li>
+      <a title="Google" href="{% url "google" %}" class="btn btn-outline-secondary">Google</a>
+    </li>
+    <li>
+      <a title="Facebook" href="/accounts/facebook/login/?process=login" class="btn btn-outline-secondary">Facebook</a>
+    </li>
+  </ul>
+</div>
+
+{% endblock content %}
